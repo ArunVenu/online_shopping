@@ -21,45 +21,47 @@
 
 <title>Online Shopping - ${title}</title>
 <script>
-window.menu = '${title}';
+	window.menu = '${title}';
 </script>
 <!-- Bootstrap core CSS -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
- 
+
 <!-- Bootstrap readable theme CSS  -->
-<link href="${css}/bootstrap-readable-theme.css" rel="stylesheet">
+<link href="${css}/bootswatch-readable-theme.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
 <link href="${css}/myapp.css" rel="stylesheet">
 </head>
 
 <body>
-	
-	<!-- Navbar -->
-	<%@include file="./include/navbar.jsp" %>
 
-	
+	<!-- Navbar -->
+	<%@include file="./include/navbar.jsp"%>
+
+
 	<!-- Page Content -->
-	
+
 	<c:if test="${userclickHome == true }">
-	<%@include file="home.jsp" %>
+		<%@include file="home.jsp"%>
 	</c:if>
 	<!-- load when user click about page -->
 	<c:if test="${userclickAbout == true }">
-	<%@include file="about.jsp" %>
+		<%@include file="about.jsp"%>
 	</c:if>
 	<!-- load when user click contact page -->
 	<c:if test="${userclickContact}">
-	<%@include file="contact.jsp" %>
+		<%@include file="contact.jsp"%>
 	</c:if>
-	<c:if test="${userclickListproducts}">
-	<%@include file="listproducts.jsp" %>
+	<!-- load when user click listproducts page -->
+
+	<c:if
+		test="${userclickCategoryProducts == true or userclickAllProducts == true}">
+		<%@include file="listproduct.jsp"%>
 	</c:if>
-	
+
 	<!-- Footer -->
-	<footer class="py-5 bg-dark footer">
-	<%@include file="./include/footer.jsp" %>
-	</footer>
+	<footer class="py-5 bg-dark footer"> <%@include
+		file="./include/footer.jsp"%> </footer>
 	<!-- Bootstrap core JavaScript -->
 	<script src="${js}/jquery.min.js"></script>
 
@@ -68,7 +70,7 @@ window.menu = '${title}';
 
 	<!-- self coded JavaScript -->
 	<script src="${js}/myapp.js"></script>
-	
+
 </body>
 
 </html>
