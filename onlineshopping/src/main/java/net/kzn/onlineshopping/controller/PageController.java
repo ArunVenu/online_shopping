@@ -7,13 +7,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import net.kzn.shoppingbackend.dao.CategoryDAO;
+import net.kzn.shoppingbackend.dao.ProductDAO;
 import net.kzn.shoppingbackend.dto.Category;
+import net.kzn.shoppingbackend.dto.Product;
 
 @Controller
 public class PageController {
 
 	@Autowired
 	private CategoryDAO categoryDAO;
+
+	@Autowired
+	private ProductDAO productDAO;
 
 	@RequestMapping(value = "/")
 	public ModelAndView index() {
@@ -78,33 +83,33 @@ public class PageController {
 
 		// passig the list of categories
 		mv.addObject("categories", categoryDAO.list());
-		
+
 		// passing the single category
 		mv.addObject("category", category);
 		mv.addObject("userclickCategoryProducts", true);
 		return mv;
 
 	}
-	/*
-	 * // RequestParam
-	 * 
-	 * @RequestMapping(value = "/test") public ModelAndView
-	 * test(@RequestParam("greeting") String greeting) { ModelAndView t = new
-	 * ModelAndView("page"); t.addObject("greeting", greeting); return t; }
-	 * 
-	 * // RequestParam
-	 * 
-	 * @RequestMapping(value = "/test1") public ModelAndView
-	 * test1(@RequestParam(value = "greeting", required = false) String greeting) {
-	 * if (greeting == null) { greeting = "hello greeting"; } ModelAndView t = new
-	 * ModelAndView("page"); t.addObject("greeting", greeting); return t; }
-	 * 
-	 * // pathvariable
-	 * 
-	 * @RequestMapping("/pathtest/{pathvar}") public ModelAndView
-	 * path(@PathVariable("pathvar") String path) { ModelAndView mvpath = new
-	 * ModelAndView("page"); mvpath.addObject("greeting", path); return mvpath;
-	 * 
-	 * }
-	 */
+
+	@RequestMapping(value = "/show/{id}/product")
+	public ModelAndView showsingleProduct(@PathVariable("id") int id) {
+		ModelAndView mv = new ModelAndView("page");
+		System.out.println("+++++++++++++++++++++++++++++inside the show id product+++++++++++++++++++++++++++++");
+		
+		Product product = null;
+		product =productDAO.get(id);
+		//product = productDAO.get(id);
+		System.out.println(product);
+		System.out.println("+++++++++++++++++++++++++++++inside the show id product+++++++++++++++++++++++++++++");
+
+		// updateing the view count
+		product.setViews(product.getViews() + 1);
+		productDAO.update(product);
+		// ---------------------------------------------
+		mv.addObject("title", product.getName());
+		mv.addObject("product", product);
+		mv.addObject("userclicksingleProduct", true);
+		return mv;
+	}
+
 }

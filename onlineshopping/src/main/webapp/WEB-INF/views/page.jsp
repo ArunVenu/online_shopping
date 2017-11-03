@@ -22,12 +22,24 @@
 <title>Online Shopping - ${title}</title>
 <script>
 	window.menu = '${title}';
+	
+	window.contextRoot = '${contextRoot}';
+	
 </script>
 <!-- Bootstrap core CSS -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
 
-<!-- Bootstrap readable theme CSS  -->
-<link href="${css}/bootswatch-readable-theme.css" rel="stylesheet">
+<!-- Bootstrap readable theme -->
+<link href="${css}/bootstrap-readable-theme.css" rel="stylesheet">
+
+<!-- Bootstrap Datatable -->
+
+<!--<link href="${css}/jquery.dataTables.min.css" rel="stylesheet">  -->
+
+<link href="${css}/bootstrap.min.css" rel="stylesheet">
+
+<link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
+
 
 <!-- Custom styles for this template -->
 <link href="${css}/myapp.css" rel="stylesheet">
@@ -49,7 +61,7 @@
 		<%@include file="about.jsp"%>
 	</c:if>
 	<!-- load when user click contact page -->
-	<c:if test="${userclickContact}">
+	<c:if test="${userclickContact ==true }">
 		<%@include file="contact.jsp"%>
 	</c:if>
 	<!-- load when user click listproducts page -->
@@ -58,18 +70,38 @@
 		test="${userclickCategoryProducts == true or userclickAllProducts == true}">
 		<%@include file="listproduct.jsp"%>
 	</c:if>
+	
+	<!-- load when user click show product // dynamic product page -->
+	<c:if test="${userclicksingleProduct == true}">
+		<%@include file="singleProduct.jsp"%>
+	</c:if>
+
+	<!-- load when user click show product // dynamic product page -->
+	<c:if test="${userclickManageProducts == true}">
+		<%@include file="manageProducts.jsp"%>
+	</c:if>
+	
 
 	<!-- Footer -->
-	<footer class="py-5 bg-dark footer"> <%@include
-		file="./include/footer.jsp"%> </footer>
-	<!-- Bootstrap core JavaScript -->
-	<script src="${js}/jquery.min.js"></script>
+<%-- 	<footer class="py-5 bg-dark footer"> 
+	<%@include file="./include/footer.jsp"%> 
+	</footer>
+ --%>
 
-	<!-- Bootstrap core JavaScript -->
-	<script src="${js}/bootstrap.bundle.min.js"></script>
-
-	<!-- self coded JavaScript -->
-	<script src="${js}/myapp.js"></script>
+		<!-- jQuery 
+		<script src="${js}/jquery.js"></script>-->
+		<script src="${js}/jquery-1.12.4.js"></script>
+		
+		<!-- Bootstrap Core JavaScript -->
+		 <script src="${js}/bootstrap.min.js"></script>
+		
+		<!-- <script src="${js}/bootstrap.js"></script>			 -->
+		<!-- Data Table -->
+		
+		<script src="${js}/jquery.dataTables.min.js"></script>
+		<script src="${js}/dataTables.bootstrap.js"></script>
+		<!-- Self coded javascript -->
+		<script src="${js}/myapp.js"></script>
 
 </body>
 
