@@ -21,15 +21,28 @@ public class JsonDataController {
 	@RequestMapping("/all/products")
 	@ResponseBody
 	public List<Product> getAllProducts() {
-		System.out.println("++++++++++++++++++++++++++++++++inside a json all product++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+		System.out.println(
+				"++++++++++++++++++++++++++++++++inside a json all product++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 		return productDAO.listActiveProducts();
 
 	}
 	
+	
+	@RequestMapping("/admin/all/products")
+	@ResponseBody
+	public List<Product> getAllProductsForAdmin() {
+		System.out.println(
+				"++++++++++++++++++++++++++++++++inside a admin all product++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+		return productDAO.list();
+
+	}
+	
+
 	@RequestMapping("/category/{id}/products")
 	@ResponseBody
 	public List<Product> getProductsByCategory(@PathVariable int id) {
-		System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++inside a json category product++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+		System.out.println(
+				"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++inside a json category product++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 		return productDAO.listActiveProductsByCategory(id);
 
 	}
