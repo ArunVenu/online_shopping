@@ -184,8 +184,13 @@
 			<div style="overflow: auto">
 
 				<!-- Products table for Admin -->
-
-				<table id="adminProductsTable"
+				
+				<div class="container-fluid">
+				
+				
+					<div class="table-responsive">
+					
+						<table id="adminProductsTable"
 					class="table table-striped table-borderd">
 
 
@@ -217,7 +222,19 @@
 					</tfoot>
 				</table>
 
+							
+					
+					
+					
+					
+					
+					</div>
+				
+				
+				
+				</div>
 
+				
 
 
 

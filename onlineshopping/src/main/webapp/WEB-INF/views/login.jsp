@@ -47,7 +47,7 @@
 <body>
 
 	<!-- Navbar -->
-		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 	<div class="container">
 		<a class="navbar-brand" href="${contextRoot}/home">Online Shopping</a>
 	</div>
@@ -59,14 +59,23 @@
 
 		<%--Display Error Message --%>
 		<c:if test="${not empty message}">
+			<div class="col-md-offset-3 col-md-6">
 
-		<div class="col-md-offset-3 col-md-6">
-		
-				<div class = "alert alert-danger">${message}</div>
-		
-		</div>
+				<div class="alert alert-danger">${message}</div>
 
+			</div>
 		</c:if>
+		
+		<%--Display Logout Success Message --%>
+		<c:if test="${not empty logout}">
+			<div class="col-md-offset-3 col-md-6">
+
+				<div class="alert alert-success">${logout}</div>
+
+			</div>
+		</c:if>
+				
+		
 		<div class="row">
 
 			<div class="col-md-offset-3 col-md-6">
@@ -79,46 +88,49 @@
 
 					<div class="panel-body">
 
-						<form action ="${contextRoot}/login" method="post"
-							class="form-horizontal" id="loginForm"> 
-						
-						<div class="form-group">
-							<label for="username" class="col-md-4 control-label">Email:</label>
-							<div class="col-md-8">
-								<input type ="text" name="username" id="username" class="form-control">	
-							</div>
-						</div>	
-							
-						
-						<div class="form-group">
-							<label for="username" class="col-md-4 control-label">Password:</label>
-							<div class="col-md-8">
-								<input type ="password" name="password" id="password" class="form-control">	
-							</div>
-						</div>	
-						
-						<div class="form-group">
-							<div class="col-md-offset-4 col-md-8">
-								<input type ="submit" value="Login" class="btn btn-primary">	
-								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-							</div>
-						</div>	
-							
-							
-					    </form>
+						<form action="${contextRoot}/login" method="post"
+							class="form-horizontal" id="loginForm">
 
-		
+							<div class="form-group">
+								<label for="username" class="col-md-4 control-label">Email:</label>
+								<div class="col-md-8">
+									<input type="text" name="username" id="username"
+										class="form-control">
+								</div>
+							</div>
+
+
+							<div class="form-group">
+								<label for="username" class="col-md-4 control-label">Password:</label>
+								<div class="col-md-8">
+									<input type="password" name="password" id="password"
+										class="form-control">
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="col-md-offset-4 col-md-8">
+									<input type="submit" value="Login" class="btn btn-primary">
+									<input type="hidden" name="${_csrf.parameterName}"
+										value="${_csrf.token}" />
+								</div>
+							</div>
+
+
+						</form>
+
+
 
 					</div>
-					
-					
+
+
 					<div class="panel-footer">
 						<div class="text-right">
-						
-								New User -<a href="${contextRoot}/register">Register here</a>
-						
+
+							New User -<a href="${contextRoot}/register">Register here</a>
+
 						</div>
-									
+
 					</div>
 
 				</div>
