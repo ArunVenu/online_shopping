@@ -85,7 +85,12 @@
 		<%@include file="manageProducts.jsp"%>
 	</c:if>
 	
-
+	<!-- user click show cart -->
+	<c:if test="${userClickShowCart == true}">
+		<%@include file="cart.jsp"%>
+	</c:if>
+	
+	
 	<!-- Footer -->
 <%-- 	<footer class="py-5 bg-dark footer"> 
 	<%@include file="./include/footer.jsp"%> 

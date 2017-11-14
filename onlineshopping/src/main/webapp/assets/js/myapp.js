@@ -17,7 +17,10 @@ $(function() {
 		break;
 	case 'Shopping Cart':
 		$('#userModel').addClass('active');
-		break;		
+		break;	
+	case 'User Cart':
+		$('#userCart').addClass('active');
+		break;	
 	default:
 		if (menu == "Home")
 			break;
@@ -124,6 +127,7 @@ $(function() {
 										+ '/cart/add/'
 										+ data
 										+ '/product" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span></a>';
+								
 							}
 						}
 						
@@ -441,6 +445,55 @@ $(function() {
 		
 	}
 	
+	
+	//-----------------------------
+	//handle the click event for refresh the cart 
+	
+	$('button[name="refreshCart"]').click(function(){
+		
+		//fetch the card  line
+	
+		var cardLindId = $(this).attr('value');		
+		var countElement = $('#count_' + cardLindId);
+		var originalCount = countElement.attr('value');		
+		// to get resent updated value use val()		
+		var currentCount = countElement.val();
+		if(currentCount !== originalCount){
+			
+				if(currentCount < 1 || currentCount > 3){
+					
+					//reteriving back to the original count
+					//user have given value below 1 one 3
+					countElement.val(originalCount);
+					bootbox.alert({
+						size:'medium',
+						title:'Error',
+						message:'Product count should be minimum 1 and maximum 3'
+					});
+					
+				}
+				else{
+					var updateUrl = window.contextRoot + '/cart/' + cardLindId + '/update?count=' +currentCount;
+					
+					//forward the url to controller
+					
+					window.location.href= updateUrl;
+				}
+					
+		}
+		
+	})
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//------------------------------
 	
 	
 });	

@@ -39,36 +39,36 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		
-		
+
+
 		<!-- Spring Security -->
 
 
 		<dependency>
-		
+
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
 			<version>${spring.security.version}</version>
-		
+
 		</dependency>
-		
+
 		<dependency>
-		
+
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-web</artifactId>
 			<version>${spring.security.version}</version>
-		
+
 		</dependency>
-		
+
 		<dependency>
-		
+
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-taglibs</artifactId>
 			<version>${spring.security.version}</version>
-		
+
 		</dependency>
-		
-		
+
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
@@ -87,11 +87,18 @@
 			<version>${spring.version}</version>
 		</dependency>
 
-		<!-- H2 Database -->
+		<!-- H2 Database
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<version>1.4.196</version>
+		</dependency> -->
+
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.44</version>
 		</dependency>
 
 		<!-- Hibernate Dependency -->
@@ -143,7 +150,7 @@
 		</dependency>
 
 		<!-- Hibernate Validator -->
-		
+
 
 		<dependency>
 			<groupId>javax.validation</groupId>
@@ -156,8 +163,8 @@
 			<artifactId>hibernate-validator</artifactId>
 			<version>5.4.1.Final</version>
 		</dependency>
-		
-		
+
+
 
 	</dependencies>
 	<build>
